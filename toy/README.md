@@ -34,10 +34,6 @@ Data is spit up into five minute batches - which has no effect on the 'pop_profi
 
 ### Loading the data
 
-Note that no primary key is provided in the CSV files. Rather, it is expected that an auto-incrementing integer primary key will be defined on the datastore into which they are loaded. 
-
-For the `event` table this is an absolute requirement. In principle, the `person_id` field may be used as a primary key for the `pop_profile` table; but as this is a 32-character hex value, definition of an integer primary key is recommended for convenience.
-
 For schema details, see the [Data Glossary](../DATAGLOSSARY.md).
 
 ### Querying the data
