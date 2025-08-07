@@ -16,3 +16,8 @@ COMPLEX TEST 4,Test conditions 5 & 8,18,Haz,"A curfew violation and exclusion vi
 COMPLEX TEST 5,Test conditions 4 & 5,19,Issy,"A tamper event occurs during a curfew violation, but is cancelled within the threshold time"
 COMPLEX TEST 6,Test conditions 4 & 8,20,Nat,"A tamper event occurs during an exclusion zone violation, but is cancelled within the threshold time"
 COMPLEX TEST 7,Test conditions 5 & 10,11,Kay,"The offender is both absent from an inclusion zone and present in an exclusion zone, but the exclusion violation is cancelled within the threshold time."
+TEST CONDITION 11,Low-battery alerts trigger notifications,21,Rich,A low-battery alert is raised and is never cancelled.
+TEST CONDITION 12,Low-battery alerts trigger notifications if not cancelled within the threshold time. We define the threshold time here arbitrarily as **2 minutes**.,22,Sue,A low-battery alert is raised and only cancelled 10 minutes later.
+TEST CONDITION 13,Low-battery alerts do not trigger notifications if cancelled within the threshold time.,23,Bill,A low-battery alert is raised but cancelled within 1 minute.
+COMPLEX TEST 8,(Test conditions 7 & 13),24,Jim,"Alerts are raised both for absence from a curfew and low battery. However, the offender arrives home and begins charging his device immediately."
+COMPLEX TEST 9,(Test conditions 9 & 11),25,Mike,"Alerts are raised for entry into an exclusion zone and for low battery. The offender quickly leaves the exclusion zone within the threshold time, but never addresses the low-battery issue."

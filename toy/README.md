@@ -5,6 +5,7 @@ This toy dataset contains records sufficient for testing basic functionality of 
 * attempts to tamper with tagging equipment
 * failure to appear at curfew
 * entry into an exclusion zone
+* low battery level
 
 In all cases the basic mechanism is the same: a notification is sent if and only if an alerting event is logged and no cancelling event is received within a designated threshold. For more information see the [Event Model](../EVENTMODEL.md) file.
 
@@ -17,8 +18,9 @@ The thresholds within which receipt of a cancelling event serves to cancel a not
 |Violation type|Threshold|
 |-------|-------|
 |Tamper|2 minutes|
-|Curfew| 10 minutes|
+|Low battery|2 minutes|
 |Exclusion zone| 5 minutes|
+|Curfew| 10 minutes|
 
 These times are arbitrary and may change in future as more live data comes onstream.
 

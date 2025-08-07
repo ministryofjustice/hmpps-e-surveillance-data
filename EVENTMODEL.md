@@ -29,11 +29,12 @@ Some research is needed to determine what the appropriate thresholds are for the
 
 ### Supported scenarios
 
-Three scenarios are of interest:
+Four scenarios are of interest:
 
 1. **Tampers**: The Person on Probation (PoP) attempts to remove his or her tag, in violation of license conditions.
 2. **Curfew violations**: A zone (typically a home and/or workplace) has been defined, in which the PoP must be present within defined hours. These zones are sometimes referred to as 'inclusion' zones, because they define an area to which the PoP is confined at specified times. Curfew violations thus indicate that a PoP is __absent__ from an area in which he or she is expected to be present.
 3. **Exclusion zone violations**: A zone has been defined (for example, an airport or area around a school) which the PoP is not allowed to enter. Exclusion zone violations indicate that the PoP is __present__ in an area from which he or she is expected to be absent. Unlike inclusion zones, exclusion zones are typically 24/7 restrictions: there is no point at which the offender is allowed into the exclusion zone. However, there may be some exceptions.
+4. **Low battery warnings**: These indicate that the offender's device has only limited power remaining, and requires charging.
 
 ### Tamper events
 
@@ -79,7 +80,17 @@ They are terminated by:
 
 As with inclusion violations, the semantics of these event types are unclear, and will need to be clarified in the course of development.
 
-## Status checks
+## Low battery warnings
 
-In addition to the codes listed above, there are numerous others that can be ignored for the purposes of the notifications service. One value worth noting, however, is `EV_PARTIAL_CALLBACK`, as this constitutes single largest category of updates. `EV_PARTIAL CALLBACK` is a routine status check to ensure the continued tag functioning.
+Multiple low-battery warnings are available in our source data. The precise level and urgency of each of these is not always clear. In general terms, however:
 
+Low battery warnings are initiated by:
+
+* `EV_ENTER_LOW_POWER_STATE`
+* `EV_PID_BATTERY_LOW`
+* `EV_BATTERY_LEV_5PERCENT`
+
+They are terminated by:
+
+* `EV_CHARGING_STARTED`
+* `EV_MU_MAINS_START`

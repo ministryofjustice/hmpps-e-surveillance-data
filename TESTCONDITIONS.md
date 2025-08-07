@@ -27,29 +27,9 @@ This means a relatively small class of generic tests covers all scenarios as cur
     * a tamper event is received while a PoP is present in an exclusion zone
     * a PoP is absent from an inclusion zone and present in an exclusion zone
     * ... and countermands for all of these produce appropriate effects
-    	* countermanding a tamper event received while a PoP is late for curfew
-    	* countermanding a tamper event received while a PoP remains in an exclusion zone
-    	* countermanding an exclusion violation while the PoP remains late for curfew
+      * countermanding a tamper event received while a PoP is late for curfew
+      * countermanding a tamper event received while a PoP remains in an exclusion zone
+      * countermanding an exclusion violation while the PoP remains late for curfew
 
 
-  ### Synthetic data requirements
-
-  Of the 20 'toy' entities: 
-
-  * 14 should consist of 'simple' events
-      * 3 should consist only of routine status alerts
-      * 3 should contain 2-3 tamper events, of which 1 or 2 are subsequently cleared within threshold
-      * 4 should contain curfew (inclusion) violations
-          * 2 are cleared within threshold
-          * 2 are not cleared within threshold
-      * 4 should contain exclusion violations
-          * 2 are cleared within threshold
-          * 2 are not cleared within threshold
-  * 6 should consist of 'complex' events
-      * 1 where a tamper event occurs during a curfew violation and neither are countermanded
-      * 1 where a tamper event occurs within an exclusion zone and neither event is countermanded
-      * 1 where a PoP is both absent from an inclusion zone and present within an exclusin zone
-      * 1 where a tamper event occurs during a curfew violation, but the tamper event is countermanded
-      * 1 where a tamper event occurs within an exclusion zone, but the tamper event is countermanded
-      * 1 where a PoP is both absent from an inclusion zone and present in an exclusion zone, but a countermand for the exclusion event is received
 
