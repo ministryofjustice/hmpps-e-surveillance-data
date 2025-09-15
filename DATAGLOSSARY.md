@@ -61,7 +61,7 @@ A familiar name, by which the PoP may prefer to be addressed. Often a shortned f
 #### toy
 `BOOLEAN`
 
-An indication of whether this record is part of the selected minimal 'toy' dataset created for exploratory and development purposes. 
+An indication of whether this record is part of the selected minimal 'toy' dataset created for exploratory and development purposes. 
 
 Note that `toy` is indicated explicitly only in `pop_profile` records; toy `events` and `locations` are identifiable only through joining with `pop_profile`. 
 
