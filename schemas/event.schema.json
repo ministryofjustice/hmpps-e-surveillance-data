@@ -1,0 +1,43 @@
+{ 
+  "$id": "https://hmpps-esurveillance.moj.gov.uk/event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Schema for tag event data. Note in particular the restricted list of event names.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "person_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{32}$"
+    },
+    "event_name": {
+      "enum": [
+          "EV_BATTERY_LEV_PERCENT",
+          "EV_CHARGING_STARTED",
+          "EV_CURFEWED_PID_ABSENT",
+          "EV_CURFEWED_PID_ARRIVED",
+          "EV_ENTER_LOW_POWER_STATE",
+          "EV_EXCLUDED_PID_ARRIVED_DURING_EXCLUSION",
+          "EV_EXCLUDED_PID_DEPARTED_DURING_EXCLUSION",
+          "EV_MU_MAINS_START",
+          "EV_PID_ABSENT",
+          "EV_PID_ABSENT_DURING",
+          "EV_PID_ARRIVED",
+          "EV_PID_BATTERY_LOW",
+          "EV_PID_STRAP_TAMPER_END",
+          "EV_PID_STRAP_TAMPER_START",
+          "EV_ZONE_EXCLUSION_TU_ARRIVED_DURING_TIME",
+          "EV_ZONE_EXCLUSION_TU_DEPARTED_DURING_TIME",
+          "EV_ZONE_EXCLUSION_TU_PRESENT_AT_START_TIME",
+          "EV_ZONE_INCLUSION_TU_ABSENT_AT_START_TIME",
+          "EV_ZONE_INCLUSION_TU_ARRIVED_DURING_TIME"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{4}$"
+    }
+  },
+  "required": [ "id", "person_id", "event_name", "timestamp" ]
+}

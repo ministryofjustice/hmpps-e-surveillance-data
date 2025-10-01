@@ -4,6 +4,8 @@
 
 With regard to datatypes, sqlite uses a relatively small number, mapped from more restrictive SQL constructs. For instance, VARCHAR fields are all, under the sqlite hood, of TEXT type, and character limits are accordingly not enforced. Similarly, floats and doubles are all REAL numbers.
 
+More precise datatyping and validation rules are defined in the relevant JSON schema files, found in the `schemas` directory.
+
 sqlite also does not enforce key constraints by default. To enable foreign keys, the `foreign keys` pragma must be set to 'on' prior to loading the sqlite dump, like this:
 
 ``` PRAGMA foreign_keys = on; ```
