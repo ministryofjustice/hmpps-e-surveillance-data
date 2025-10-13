@@ -1,24 +1,15 @@
 # DATA GLOSSARY
 
-**A note on sqlite:** Data is stored in a sqlite file. Although queryable as a standard SQL database, it should be noted that sqlite's schema enforcement is quite loose.
+This file describes the data schema in abstract terms. For Postgres and JSON Schema instantiations of this abstract schema, see the (schemas)[schemas] directory.
 
-With regard to datatypes, sqlite uses a relatively small number, mapped from more restrictive SQL constructs. For instance, VARCHAR fields are all, under the sqlite hood, of TEXT type, and character limits are accordingly not enforced. Similarly, floats and doubles are all REAL numbers.
+## Gotchas
 
-More precise datatyping and validation rules are defined in the relevant JSON schema files, found in the `schemas` directory.
-
-sqlite also does not enforce key constraints by default. To enable foreign keys, the `foreign keys` pragma must be set to 'on' prior to loading the sqlite dump, like this:
-
-``` PRAGMA foreign_keys = on; ```
+* Note that all tables have a `timestamp` field, which must be expressed in ISO-8601 YYYY-MM-DDThh:mm:ss.ffffff format. Timestamp datatype is accordingly VARCHAR(25).
+* In earlier versions of this schema, the `person` table was referred to as the `pop_profile` table (with 'pop' referring to Persons on Probation)
+* In earlier versions of this schema, a `pop_location` table was included to accommodate near-realtime reporting of tag location. This proved to be superfluous to requirements, however, and has now been dropped.
 
 
-## Tables
-
-Note: the `pop` prefix refers to 'Person on Probation'
-
-Note that all tables have a `timestamp` field, which must be expressed in ISO-8601 YYYY-MM-DDThh:mm:ss.ffffff format. Timestamp datatype is accordingly VARCHAR(25).
-
-
-### pop_profile
+### people
 
  #### id 
  `INTEGER PRIMARY KEY AUTOINCREMENT`
@@ -66,34 +57,6 @@ A familiar name, by which the PoP may prefer to be addressed. Often a shortned f
 An indication of whether this record is part of the selected minimal 'toy' dataset created for exploratory and development purposes. 
 
 Note that `toy` is indicated explicitly only in `pop_profile` records; toy `events` and `locations` are identifiable only through joining with `pop_profile`. 
-
-### pop_location
-
-Note that more geographic information is available from source systems, including bearing, speed, GPS satellite visibility, and more. Excluded at present, as relevance has not yet been established.
-
-#### id
-`INTEGER PRIMARY KEY AUTOCREMENT`
-
-Primary key. Not used elsewhere.
-
-#### person_id
-`VARCHAR(50)`
-Foreign key to the `pop_profile` table.
-
-#### latitude
-`REAL`
-
-Latitude of device.
-
-#### longitude
-`REAL`
-
-Longitude of device.
-
-#### latitude
-`REAL`
-
-Latitude of device.
 
 ### event
 
